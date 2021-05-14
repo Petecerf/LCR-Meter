@@ -1,0 +1,15 @@
+main.c:85:14:StartHandler	16	static
+main.c:91:14:MenuHandler	16	static
+main.c:117:14:AffHandler	24	static
+main.c:129:14:RegHandler	16	static
+main.c:143:14:Reg_FreqHandler	16	static
+main.c:159:14:Autres_RegHandler	16	static
+main.c:167:14:Choix_Calib_ConfirmHandler	16	static
+main.c:185:14:Calib_ConfirmHandler	16	static
+main.c:217:5:main	16	static
+main.c:344:6:SystemClock_Config	152	static
+main.c:395:13:MX_USART3_UART_Init	8	static
+main.c:428:13:MX_USB_OTG_FS_PCD_Init	8	static
+main.c:464:13:MX_GPIO_Init	56	static
+main.c:518:14:Read_Event	8	static
+main.c:547:6:Error_Handler	4	static
