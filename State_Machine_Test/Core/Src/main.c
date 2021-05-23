@@ -118,7 +118,7 @@ eSystemState MenuHandler(eSystemEvent Event)
 
 eSystemState AffHandler(eSystemEvent Event)
 {
-	if (Event == Btn_1)
+	if (Event == Btn_retour)
 	{
 		val = 0;
 		memset(Compo,0,strlen(Compo));
@@ -130,13 +130,13 @@ eSystemState AffHandler(eSystemEvent Event)
 
 eSystemState RegHandler(eSystemEvent Event)
 {
-	if (Event == Btn_1)
+	if (Event == Btn_retour)
 		return Menu;
-	if (Event == Btn_2)
+	if (Event == Btn_1)
 		return Reglage_Freq;
-	if (Event == Btn_3)
+	if (Event == Btn_2)
 		return Choix_Calib;
-	if (Event == Btn_4)
+	if (Event == Btn_3)
 		return Autres_Reglages;
 	else
 		return Reglages;
@@ -144,15 +144,15 @@ eSystemState RegHandler(eSystemEvent Event)
 
 eSystemState Reg_FreqHandler(eSystemEvent Event)
 {
-	if (Event == Btn_1)
+	if (Event == Btn_retour)
 		return Reglages;
 	else
 	{
-		if (Event == Btn_2)
-			freq = freq + 1;
-		if (Event == Btn_3)
+		if (Event == Btn_1)
 			if (freq > 0)
 				freq = freq - 1;
+		if (Event == Btn_2)
+			freq = freq + 1;
 		return Reglage_Freq;
 	}
 }
@@ -160,7 +160,7 @@ eSystemState Reg_FreqHandler(eSystemEvent Event)
 
 eSystemState Autres_RegHandler(eSystemEvent Event)
 {
-	if (Event == Btn_1)
+	if (Event == Btn_retour)
 		return Reglages;
 	else
 		return Autres_Reglages;
@@ -168,8 +168,12 @@ eSystemState Autres_RegHandler(eSystemEvent Event)
 
 eSystemState Choix_Calib_ConfirmHandler(eSystemEvent Event)
 {
-	if (Event == Btn_1)
+	if (Event == Btn_retour)
 		return Reglages;
+	if (Event == Btn_1)
+	{
+		return Reglages;
+	}
 	if (Event == Btn_2)
 	{
 		strcpy(Calib, "OC");
@@ -184,19 +188,6 @@ eSystemState Choix_Calib_ConfirmHandler(eSystemEvent Event)
 		return Choix_Calib;
 }
 
-eSystemState Calib_ConfirmHandler(eSystemEvent Event)
-{
-	if (Event == Btn_1)
-	{
-		memset(Calib,0,strlen(Calib));
-		return Choix_Calib;
-	}
-	if (Event == Btn_2)
-		return Menu;
-	else
-		return Calib_Confirm;
-}
-
 //Initialize array of structure with states and event with proper handler
 sStateMachine asStateMachine [] =
 {
@@ -206,7 +197,6 @@ sStateMachine asStateMachine [] =
   {Reglage_Freq, Reg_FreqHandler},
   {Autres_Reglages, Autres_RegHandler},
   {Choix_Calib, Choix_Calib_ConfirmHandler},
-  {Calib_Confirm, Calib_ConfirmHandler},
 };
 
 
@@ -308,10 +298,6 @@ int main(void)
 				  break;
 			  case Choix_Calib:
 				  HAL_GPIO_WritePin(GPIOB, LD1_Pin|LD2_Pin|LD3_Pin, GPIO_PIN_SET);
-				  HAL_Delay(100);
-				  break;
-			  case Calib_Confirm:
-				  HAL_GPIO_WritePin(GPIOB, LD1_Pin|LD2_Pin|LD3_Pin, GPIO_PIN_RESET);
 				  HAL_Delay(100);
 				  break;
 			  case Last_State:

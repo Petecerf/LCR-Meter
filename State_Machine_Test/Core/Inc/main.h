@@ -109,6 +109,7 @@ void Error_Handler(void);
 /* USER CODE BEGIN Private defines */
 
 #define pi M_PI
+#define Btn_retour Btn_4
 
 //Different state of ATM machine
 typedef enum
@@ -119,7 +120,6 @@ typedef enum
 	Reglage_Freq,
 	Autres_Reglages,
 	Choix_Calib,
-	Calib_Confirm,
 	Last_State
 } eSystemState;
 
