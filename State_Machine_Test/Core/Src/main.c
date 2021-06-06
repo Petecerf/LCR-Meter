@@ -177,12 +177,12 @@ eSystemState Choix_Calib_ConfirmHandler(eSystemEvent Event)
 	if (Event == Btn_2)
 	{
 		strcpy(Calib, "OC");
-		return Calib_Confirm;
+		return Choix_Calib;
 	}
 	if (Event == Btn_3)
 	{
 		strcpy(Calib, "CC");
-		return Calib_Confirm;
+		return Choix_Calib;
 	}
 	else
 		return Choix_Calib;
