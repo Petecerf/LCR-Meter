@@ -40,8 +40,8 @@ State_Machine_Test.bin \
 all: State_Machine_Test.elf secondary-outputs
 
 # Tool invocations
-State_Machine_Test.elf: $(OBJS) $(USER_OBJS) D:\STM32CubeIDE\workspace_1.1.0\State_Machine_Test\STM32F412ZGTX_FLASH.ld
-	arm-none-eabi-gcc -o "State_Machine_Test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\STM32CubeIDE\workspace_1.1.0\State_Machine_Test\STM32F412ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="State_Machine_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+State_Machine_Test.elf: $(OBJS) $(USER_OBJS) C:\Users\Sasha123\Documents\GitHub\LCR-Meter\State_Machine_Test\STM32F412ZGTX_FLASH.ld
+	arm-none-eabi-gcc -o "State_Machine_Test.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Sasha123\Documents\GitHub\LCR-Meter\State_Machine_Test\STM32F412ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="State_Machine_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
